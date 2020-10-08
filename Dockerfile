@@ -15,7 +15,6 @@ RUN set -o errexit -o nounset \
   && rm /var/cache/apk/*
 
 RUN set -o errexit -o nounset \
-  && echo "Changing docker gid" \
   && echo "Adding aws user and group" \
   && addgroup -S -g 1000 aws \
   && adduser -S aws -G aws -u 1000 -s /bin/sh -h /home/aws \
