@@ -1,7 +1,6 @@
 FROM python:alpine
 
 RUN set -o errexit -o nounset \
-  && mkdir -p /aws \
   && apk -v --update add \
     musl-dev \
     gcc \
@@ -15,6 +14,7 @@ RUN set -o errexit -o nounset \
   && rm /var/cache/apk/*
 
 RUN set -o errexit -o nounset \
+  && mkdir -p /src/aws \
   && echo "Adding aws user and group" \
   && addgroup -S -g 1000 aws \
   && adduser -S aws -G aws -u 1000 -s /bin/sh -h /home/aws \
@@ -24,6 +24,6 @@ RUN set -o errexit -o nounset \
 
 COPY run.sh /usr/local/bin/
 
-WORKDIR /aws
+WORKDIR /src/aws
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
