@@ -35,8 +35,8 @@ RUN set -o errexit -o nounset \
   && mkdir -p /home/aws/.aws \
   && chown --recursive aws:aws /home/aws
 
- COPY run.sh /usr/local/bin/
+COPY run.sh /usr/local/bin/
 
- WORKDIR /src/aws
+WORKDIR /src/aws
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
