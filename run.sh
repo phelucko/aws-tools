@@ -27,7 +27,7 @@ params=""
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --host-working-dir)
-      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+      if [ -n "$2" ]; then
         working_dir=$2
         shift 2
       else
