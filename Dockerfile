@@ -2,7 +2,7 @@ FROM python:slim-buster
 
 RUN set -o errexit -o nounset \
   && apt-get update -y \
-  && apt-get install -y -q curl unzip git \
+  && apt-get install -y -q curl unzip git groff \
   && pip install aws-sam-cli
 
 RUN set -o errexit -o nounset \
